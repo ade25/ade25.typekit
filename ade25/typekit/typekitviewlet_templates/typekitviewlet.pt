@@ -1,5 +1,6 @@
 <tal:extra-head omit-tag="" condition="viewlet/available">
     <script type="text/javascript" src="//use.typekit.net/lvq3qav.js"
-        tal:attributes="src viewlet/kit_source_url"></script>
+        tal:attributes="src viewlet/kit_source_url">
+    </script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </tal:extra-head>

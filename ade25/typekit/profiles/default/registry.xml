@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
 <registry>
-    <records interface="ade25.typekit.interfaces.ITypeKitSettings"
-        prefix="ade25.typekit" />
+    <records interface="ade25.typekit.interfaces.ITypeKitSettings" />
 </registry>

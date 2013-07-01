@@ -1,6 +1,6 @@
 <layers>
   <layer
-    name="ade25.tpyekit.layer"
+    name="ade25.typekit.layer"
     interface="ade25.typekit.interfaces.IAde25TypeKit"
   />
 </layers>

@@ -1,10 +1,13 @@
 from five import grok
 from plone import api
 from zope.interface import Interface
+from zope.component import getUtility
 
+from plone.registry.interfaces import IRegistry
 from plone.app.layout.viewlets.interfaces import IHtmlHead
 
 from ade25.typekit.interfaces import IAde25TypeKit
+from ade25.typekit.interfaces import ITypeKitSettings
 
 
 class TypeKitViewlet(grok.Viewlet):
@@ -14,7 +17,10 @@ class TypeKitViewlet(grok.Viewlet):
     grok.viewletmanager(IHtmlHead)
     grok.name('ade25.typekit.TypeKitViewlet')
 
-    def available(self):
+    def update(self):
+        self.available = self.is_available()
+
+    def is_available(self):
         if self.kit_id() is None:
             return False
         return True
@@ -24,5 +30,7 @@ class TypeKitViewlet(grok.Viewlet):
         return url
 
     def kit_id(self):
-        kit_id = api.portal.get_registry_record('ade25.typekit.kitID')
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(ITypeKitSettings)
+        kit_id = settings.kitID
         return kit_id
