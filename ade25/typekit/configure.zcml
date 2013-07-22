@@ -7,6 +7,7 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="ade25.typekit">
 
+  <includeDependencies package="." />
   <grok:grok package="." />
 
   <i18n:registerTranslations directory="locales" />
