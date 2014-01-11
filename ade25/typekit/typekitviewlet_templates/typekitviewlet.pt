@@ -2,5 +2,13 @@
     <script type="text/javascript" src="//use.typekit.net/lvq3qav.js"
         tal:attributes="src viewlet/kit_source_url">
     </script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" tal:condition="not:viewlet/kit_callback_enabled">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" tal:condition="viewlet/kit_callback_enabled">
+        try{Typekit.load({
+          active: function() {
+            Ade25App.runWhenWFLoaded();
+          }
+        }
+        );}catch(e){}
+    </script>
 </tal:extra-head>

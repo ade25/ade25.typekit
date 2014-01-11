@@ -34,3 +34,9 @@ class TypeKitViewlet(grok.Viewlet):
         settings = registry.forInterface(ITypeKitSettings)
         kit_id = settings.kitID
         return kit_id
+
+    def kit_callback_enabled(self):
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(ITypeKitSettings)
+        enabled = settings.useLoadCallback
+        return enabled
